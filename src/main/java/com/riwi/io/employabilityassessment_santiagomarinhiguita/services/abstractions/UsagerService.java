@@ -12,6 +12,7 @@ public interface UsagerService {
     //Lectores de atributos de CLASE (getters)
         //Métodos de CLASE
     public List<Usager> findAll();
+    public List<Usager> findAllActive();
     public Optional<Usager> findById(Long id);
     public Usager save(Usager usager);
     public void deleteById(Long id);
