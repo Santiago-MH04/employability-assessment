@@ -14,6 +14,8 @@ public interface UsagerService {
     public List<Usager> findAll();
     public List<Usager> findAllActive();
     public Optional<Usager> findById(Long id);
+    public Optional<Usager> findByIdEager(Long id);
     public Usager save(Usager usager);
+    public Usager toComment(Long id, String comment);
     public void deleteById(Long id);
 }

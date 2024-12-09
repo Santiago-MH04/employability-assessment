@@ -20,8 +20,8 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String reason;
-    private LocalDateTime timeStart;
-    private LocalDateTime timeEnd;
+    @Column(name = "appointment_time")
+    private LocalDateTime appointmentTime;
     private String diagnosis;
 
     @Enumerated(EnumType.STRING)

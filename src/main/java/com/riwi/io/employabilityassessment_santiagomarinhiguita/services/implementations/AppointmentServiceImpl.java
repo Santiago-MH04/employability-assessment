@@ -24,6 +24,14 @@ public class AppointmentServiceImpl implements AppointmentService {
     public List<Appointment> findAll() {
         return this.repoAppointment.findAll();
     }
+        @Override
+        public List<Appointment> findAllByPatientId(Long id) {
+            return this.repoAppointment.findByPatientId(id);
+        }
+        @Override
+        public List<Appointment> findAllByPhysicianId(Long id) {
+            return this.repoAppointment.findByPhysicianId(id);
+        }
 
     @Override
     public Optional<Appointment> findById(Long id) {

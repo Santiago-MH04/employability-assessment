@@ -12,6 +12,8 @@ public interface AppointmentService {
     //Lectores de atributos de AppointmentService (getters)
         //Métodos de AppointmentService
     public List<Appointment> findAll();
+        public List<Appointment> findAllByPatientId(Long id);
+        public List<Appointment> findAllByPhysicianId(Long id);
     public Optional<Appointment> findById(Long id);
     public Appointment save(Appointment appointment);
     public void deleteById(Long id);
