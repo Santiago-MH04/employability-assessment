@@ -9,11 +9,14 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -48,7 +51,10 @@ public class UsagerController {
         }
 
     @PostMapping("/register")
-    public ResponseEntity<?> storeUsager(@Valid @RequestBody Usager usager) {
+    public ResponseEntity<?> storeUsager(@Valid @RequestBody Usager usager, BindingResult result) {
+        if(result.hasFieldErrors()) {
+            return validation(result);
+        }
         return ResponseEntity.status(HttpStatus.CREATED)
                              .body(this.usagerService.save(usager));
     }
@@ -90,5 +96,14 @@ public class UsagerController {
             return ResponseEntity.ok(usager);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    private ResponseEntity<?> validation(BindingResult bindingResult) {   //Para personalizar la respuesta de error
+        Map<String, String> errors = new HashMap<>();
+        bindingResult.getFieldErrors().forEach(
+                fe -> errors.put(fe.getField(), "El atributo " + fe.getField() + " " + fe.getDefaultMessage())
+        );
+        /*return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);*/  //Son exactamente la misma cosa
+        return ResponseEntity.badRequest().body(errors);
     }
 }
