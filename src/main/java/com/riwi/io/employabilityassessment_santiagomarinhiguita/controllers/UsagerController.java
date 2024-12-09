@@ -5,6 +5,7 @@ import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.exceptions.IsOccupiedException;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.AppointmentService;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.UsagerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +48,7 @@ public class UsagerController {
         }
 
     @PostMapping("/register")
-    public ResponseEntity<?> storeUsager(@RequestBody Usager usager) {
+    public ResponseEntity<?> storeUsager(@Valid @RequestBody Usager usager) {
         return ResponseEntity.status(HttpStatus.CREATED)
                              .body(this.usagerService.save(usager));
     }
@@ -75,7 +76,7 @@ public class UsagerController {
     }
 
     @PutMapping("/update/{id}") //Este método puede usarse para cambiar correo, o contraseña
-    public ResponseEntity<?> updateUsager(@PathVariable Long id, @RequestBody Usager usager) {
+    public ResponseEntity<?> updateUsager(@Valid @RequestBody Usager usager, @PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                              .body(this.usagerService.save(usager));
     }

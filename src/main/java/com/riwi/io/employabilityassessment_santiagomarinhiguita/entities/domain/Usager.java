@@ -2,6 +2,8 @@ package com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain
 
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.utils.UserStatus;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -21,7 +23,10 @@ public class Usager {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(unique = true)
     private String email;
+    @NotBlank
+    @Size(min = 8)
     private String password;
     @EqualsAndHashCode.Exclude
     private String comments;
