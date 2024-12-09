@@ -5,6 +5,7 @@ import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.Rol
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class RoleServiceImpl implements RoleService {
         //Métodos de RoleServiceImpl
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Role> findByRoleName(String name) {
         return this.roleRepository.findByRoleName(name.toUpperCase());
     }

@@ -5,6 +5,7 @@ import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.Spe
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.SpecialityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,21 +22,25 @@ public class SpecialityServiceImpl implements SpecialityService {
         //Métodos de SpecialityServiceImpl
 
     @Override
+    @Transactional(readOnly = true)
     public List<Speciality> findAll() {
         return this.repoSpeciality.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Speciality> findById(Long id) {
         return this.repoSpeciality.findById(id);
     }
 
     @Override
+    @Transactional
     public void save(Speciality speciality) {
         this.repoSpeciality.save(speciality);
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         this.repoSpeciality.deleteById(id);
     }

@@ -7,6 +7,7 @@ import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstrac
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.utils.AppointmentStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,6 +25,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     //Lectores de atributos de AppointmentServiceImpl (getters)
         //Métodos de AppointmentServiceImpl
     @Override
+    @Transactional(readOnly = true)
     public List<Appointment> findAll() {
         return this.repoAppointment.findAll();
     }
@@ -53,17 +55,20 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Appointment> findById(Long id) {
         return this.repoAppointment.findById(id);
     }
 
 
     @Override
+    @Transactional
     public Appointment save(Appointment appointment) {
         return this.repoAppointment.save(appointment);
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         this.repoAppointment.deleteById(id);
     }

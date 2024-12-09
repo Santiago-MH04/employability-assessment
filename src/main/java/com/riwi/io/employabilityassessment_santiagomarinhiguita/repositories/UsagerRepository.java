@@ -16,4 +16,6 @@ public interface UsagerRepository extends JpaRepository<Usager,Long> {
         //Métodos de UsagerRepository
     @Query("select u from Usager u left join u.appointments where u.id =?1")
     public Optional<Usager> findUsagerBundledWithAppointments(Long id);
+
+    Optional<Usager> findByName(String name);
 }

@@ -8,6 +8,7 @@ import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstrac
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.utils.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -28,11 +29,13 @@ public class UsagerServiceImpl implements UsagerService {
     //Lectores de atributos de UsagerServiceImpl (getters)
         //Métodos de UsagerServiceImpl
     @Override
+    @Transactional(readOnly = true)
     public List<Usager> findAll() {
         return this.repoUsager.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Usager> findAllActive() {
         return this.repoUsager.findAll()
                 .stream()
@@ -41,16 +44,19 @@ public class UsagerServiceImpl implements UsagerService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Usager> findById(Long id) {
         return this.repoUsager.findById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Usager> findByIdEager(Long id) {
         return this.repoUsager.findUsagerBundledWithAppointments(id);
     }
 
     @Override
+    @Transactional
     public Usager save(Usager usager) {
             //Cualquier Usager nuevo va a tener asociado el rol de paciente
         Optional<Role> rolePatient = this.repoRole.findByRoleName("ROLE_PATIENT");
@@ -59,6 +65,7 @@ public class UsagerServiceImpl implements UsagerService {
     }
 
     @Override
+    @Transactional
     public Usager toComment(Long id, String comment) {
         Optional<Usager> usagerOptional = this.repoUsager.findById(id);
         if(usagerOptional.isPresent()){
@@ -76,6 +83,7 @@ public class UsagerServiceImpl implements UsagerService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         this.repoUsager.findById(id).ifPresent(u -> {
             u.setStatus(UserStatus.INACTIVE);
