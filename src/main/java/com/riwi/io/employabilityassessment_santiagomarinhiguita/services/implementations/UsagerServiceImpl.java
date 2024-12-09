@@ -1,7 +1,7 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.services.implementations;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Role;
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Usager;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Role;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Usager;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.RoleRepository;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.UsagerRepository;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.UsagerService;

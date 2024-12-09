@@ -1,10 +1,11 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Appointment;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Appointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -18,4 +19,5 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     public List<Appointment> findByPatientId(Long id);
     @Query("select a from Appointment a where a.physician = (select p from Physician p where p.id =?1)")
     public List<Appointment> findByPhysicianId(Long id);
+    public boolean isOccupied(LocalDateTime startTime, LocalDateTime endTime, Long physicianID);
 }

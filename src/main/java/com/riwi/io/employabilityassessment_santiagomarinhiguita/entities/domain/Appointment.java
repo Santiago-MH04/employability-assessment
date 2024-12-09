@@ -1,4 +1,4 @@
-package com.riwi.io.employabilityassessment_santiagomarinhiguita.entities;
+package com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain;
 
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.utils.AppointmentStatus;
 import jakarta.persistence.*;
@@ -20,8 +20,10 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String reason;
-    @Column(name = "appointment_time")
-    private LocalDateTime appointmentTime;
+    @Column(name = "appointment_start_time")
+    private LocalDateTime appointmentStartTime;
+    @Column(name = "appointment_end_time")
+    private LocalDateTime appointmentEndTime;
     private String diagnosis;
 
     @Enumerated(EnumType.STRING)
@@ -36,7 +38,12 @@ public class Appointment {
     @ManyToOne
     private Physician physician;
 
-    //Constructores de Appointment
+        //Constructores de Appointment
+    @PrePersist
+    public void prePersist() {
+        this.status = AppointmentStatus.ACTIVE;
+    }
+
     //Asignadores de atributos de Appointment (setters)
     //Lectores de atributos de Appointment (getters)
     //Métodos de Appointment

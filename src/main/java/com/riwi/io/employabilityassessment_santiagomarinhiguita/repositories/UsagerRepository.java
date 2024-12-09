@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Usager;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Usager;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

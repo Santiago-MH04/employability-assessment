@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Role;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Role;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.riwi.io.employabilityassessment_santiagomarinhiguita.entities;
+package com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain;
 
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.utils.RoleName;
 import jakarta.persistence.*;

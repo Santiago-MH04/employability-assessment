@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.controllers;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Appointment;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Appointment;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,16 +21,16 @@ public class AppointmentController {
     //Lectores de atributos de CLASE (getters)
         //Métodos de CLASE
     @GetMapping
-    private List<Appointment> getAllAppointments(){
+    public List<Appointment> getAllAppointments(){
         return this.appointmentService.findAll();
     }
 
     @GetMapping("/{patientID}")
-    private List<Appointment> getAllAppointmentsByPatient(Long patientID){
+    public List<Appointment> getAllAppointmentsByPatient(Long patientID){
         return this.appointmentService.findAllByPhysicianId(patientID);
     }
     @GetMapping("/{physicianID}")
-    private List<Appointment> getAllAppointmentsByPhysician(Long physicianID){
+    public List<Appointment> getAllAppointmentsByPhysician(Long physicianID){
         return this.appointmentService.findAllByPhysicianId(physicianID);
     }
 }

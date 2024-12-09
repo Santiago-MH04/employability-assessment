@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Physician;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Physician;
 
 import java.util.List;
 import java.util.Optional;

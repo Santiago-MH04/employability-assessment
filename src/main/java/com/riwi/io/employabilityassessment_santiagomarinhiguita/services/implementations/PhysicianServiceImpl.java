@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.services.implementations;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Physician;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Physician;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.PhysicianRepository;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.PhysicianService;
 import org.springframework.beans.factory.annotation.Autowired;

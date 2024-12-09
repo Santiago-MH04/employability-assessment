@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.services.implementations;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Speciality;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Speciality;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.SpecialityRepository;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.SpecialityService;
 import org.springframework.beans.factory.annotation.Autowired;

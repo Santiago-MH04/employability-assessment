@@ -1,6 +1,6 @@
 package com.riwi.io.employabilityassessment_santiagomarinhiguita.services.implementations;
 
-import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.Role;
+import com.riwi.io.employabilityassessment_santiagomarinhiguita.entities.domain.Role;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.repositories.RoleRepository;
 import com.riwi.io.employabilityassessment_santiagomarinhiguita.services.abstractions.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
