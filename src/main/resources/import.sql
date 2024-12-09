@@ -1,1 +1,2 @@
 INSERT INTO roles (role_name) VALUES('ROLE_ADMIN'),('ROLE_PATIENT');
+INSERT INTO specialities (speciality_name) VALUES('GYNECOLOGY'),('NEUROLOGY'),('NUTRITION'),('ONCOLOGY'),('PEDIATRIC');
