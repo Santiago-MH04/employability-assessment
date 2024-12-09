@@ -40,7 +40,7 @@ public class Usager {
     public void prePersist() {
         this.roles = new ArrayList<>();
         this.appointments = new ArrayList<>();
-        /*this.setStatus(UserStatus.ACTIVE);*/
+        this.setStatus(UserStatus.ACTIVE);
     }
 
         //Asignadores de atributos de Usager (setters)

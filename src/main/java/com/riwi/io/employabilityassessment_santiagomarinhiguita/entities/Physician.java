@@ -43,7 +43,51 @@ public class Physician {
         this.appointments = new ArrayList<>();
     }
 
-    //Asignadores de atributos de Physician (setters)
-    //Lectores de atributos de Physician (getters)
+        //Asignadores de atributos de Physician (setters)
+    public void setId(Long id) {
+        this.id = id;
+    }
+        public void setName(String name) {
+            this.name = name;
+        }
+            public void setEmail(String email) {
+                this.email = email;
+            }
+                public void setShiftStart(LocalTime shiftStart) {
+                    this.shiftStart = shiftStart;
+                }
+                    public void setShiftEnd(LocalTime shiftEnd) {
+                        this.shiftEnd = shiftEnd;
+                    }
+                        public void setSpeciality(Speciality speciality) {
+                            this.speciality = speciality;
+                        }
+                            public void setAppointments(List<Appointment> appointments) {
+                                this.appointments = appointments;
+                            }
+
+        //Lectores de atributos de Physician (getters)
+    public Long getId() {
+        return this.id;
+    }
+        public String getName() {
+            return this.name;
+        }
+            public String getEmail() {
+                return this.email;
+            }
+                public LocalTime getShiftStart() {
+                    return this.shiftStart;
+                }
+                    public LocalTime getShiftEnd() {
+                        return this.shiftEnd;
+                    }
+                        public Speciality getSpeciality() {
+                            return this.speciality;
+                        }
+                            public List<Appointment> getAppointments() {
+                                return this.appointments;
+                            }
+
     //Métodos de Physician
 }

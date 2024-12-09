@@ -47,8 +47,8 @@ public class PhysicianController {
         Optional<Physician> physicianOptional = this.physicianService.findById(id);
         if (physicianOptional.isPresent()){
             Physician physician = physicianOptional.get();
-            /*this.physicianService.deleteById(physician.getId());*/
-            this.physicianService.deleteById(id);
+            this.physicianService.deleteById(physician.getId());
+            /*this.physicianService.deleteById(id);*/
             return ResponseEntity.ok(physician);
         }
         return ResponseEntity.notFound().build();
